@@ -222,6 +222,10 @@ SMTP_PORT=587
 SMTP_USER=your_smtp_username
 SMTP_PASS=your_smtp_password
 SMTP_SECURE=false
+
+# Stripe payments
+STRIPE_SECRET_KEY=sk_test_123
+STRIPE_WEBHOOK_SECRET=whsec_123
 ```
 
 ### Client (optional .env)

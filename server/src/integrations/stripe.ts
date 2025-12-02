@@ -26,6 +26,7 @@ async function stripeRequest<T>(path: string, params: URLSearchParams): Promise<
     method: "POST",
     headers: {
       Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: params,
   });

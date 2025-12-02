@@ -46,6 +46,10 @@ export async function stripeWebhook(
   next: NextFunction
 ) {
   try {
+    if (!stripeService.isWebhookConfigured()) {
+      throw new AppError("Stripe webhook is not configured", 503);
+    }
+
     const signature = req.headers["stripe-signature"];
     const event = constructStripeEvent(signature, req.body as Buffer);
     const payload = event.data.object as { id?: string };

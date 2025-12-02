@@ -25,6 +25,8 @@ const warnIfMissing = [
   "SMTP_PORT",
   "SMTP_USER",
   "SMTP_PASS",
+  "STRIPE_SECRET_KEY",
+  "STRIPE_WEBHOOK_SECRET",
 ];
 
 warnIfMissing.forEach((key) => {

@@ -87,8 +87,9 @@ warriorforge-automations/
 
    # Edit .env and fill in your values:
    # - ADMIN_EMAIL: Your admin notification email
-   # - ADMIN_PASSWORD: Password for admin routes
+   # - ADMIN_PASSWORD: Password for admin routes (server will refuse to start without it)
    # - SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS: Email server config
+   # - STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET: Stripe keys for payments
    ```
 
 4. **Initialize database**
@@ -165,7 +166,8 @@ npm run dev:client
 - `GET /api/automations/:id` - Get single automation
 - `POST /api/orders` - Create new order
 - `POST /api/demo-leads` - Submit demo lead
-- `POST /api/pay` - Payment endpoint (Stripe placeholder)
+- `POST /api/pay` - Payment endpoint (Stripe PaymentIntent creation)
+- `POST /api/pay/webhook` - Stripe webhook listener
 
 ### Admin Endpoints (require x-admin-token header)
 
@@ -220,6 +222,10 @@ SMTP_PORT=587
 SMTP_USER=your_smtp_username
 SMTP_PASS=your_smtp_password
 SMTP_SECURE=false
+
+# Stripe payments
+STRIPE_SECRET_KEY=sk_test_123
+STRIPE_WEBHOOK_SECRET=whsec_123
 ```
 
 ### Client (optional .env)

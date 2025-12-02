@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { ordersService } from "../services/orders.service";
-import { sendNewOrderEmail } from "../services/email.service";
+import { emailService, sendNewOrderEmail } from "../services/email.service";
 import { toOrderDTO } from "../types/dto";
 import { AppError } from "../utils/AppError";
 
@@ -55,7 +55,20 @@ export async function createOrder(
     }
 
     const { order, automation } = await ordersService.createOrder(payload);
-    await sendNewOrderEmail(order, automation);
+
+    try {
+      await sendNewOrderEmail(order, automation);
+    } catch (emailError) {
+      console.error("Failed to send order notification email", emailError);
+
+      if (!emailService.isConfigured()) {
+        console.warn(
+          "SMTP is not configured. Set SMTP_* env vars to enable order alerts.",
+        );
+      }
+
+      // Continue without failing the order creation response
+    }
 
     res
       .status(201)

@@ -5,7 +5,7 @@ import automationsRouter from "./routes/automations.routes";
 import ordersRouter from "./routes/orders.routes";
 import adminRouter from "./routes/admin.routes";
 import payRouter from "./routes/pay.routes";
-import demoLeadsRouter from "./routes/demoLeads.routes";
+import { demoLeadsRouter } from "./routes/demoLeads.routes";
 import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();

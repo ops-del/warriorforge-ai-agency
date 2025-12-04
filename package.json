@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "dev:server": "cd server && npm run dev",
-    "dev:client": "cd client && npm run dev"
+    "dev:client": "cd client && npm run dev",
+    "build": "cd server && npm install && npm run build && cd ../client && npm install && npm run build",
+    "start": "cd server && node dist/server/src/index.js"
   }
 }

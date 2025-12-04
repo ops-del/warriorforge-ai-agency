@@ -301,7 +301,21 @@ Interactive chat simulations for:
 
 ## Production Deployment
 
-### Backend
+### Railway (Recommended)
+
+For easy deployment with automatic builds and database provisioning:
+
+📘 **[See complete Railway Deployment Guide](./RAILWAY-DEPLOYMENT.md)**
+
+Quick steps:
+1. Push code to GitHub ✅
+2. Connect repository to Railway
+3. Set environment variables
+4. Deploy automatically
+
+### Manual Deployment
+
+#### Backend
 
 1. Set `NODE_ENV=production`
 2. Use PostgreSQL instead of SQLite
@@ -310,7 +324,7 @@ Interactive chat simulations for:
 5. Set up reverse proxy (nginx)
 6. Configure SSL certificates
 
-### Frontend
+#### Frontend
 
 1. Run `npm run build`
 2. Serve `dist/` folder via static hosting

@@ -52,3 +52,7 @@ prisma/migrations/
 
 # Railway
 .railway/
+
+# Compiled JavaScript from TypeScript (shared types)
+shared/*.js
+shared/*.d.ts

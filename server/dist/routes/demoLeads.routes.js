@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.adminDemoLeadsRouter = exports.demoLeadsRouter = void 0;
+const express_1 = require("express");
+const demoLeads_controller_1 = require("../controllers/demoLeads.controller");
+const adminAuth_1 = require("../middleware/adminAuth");
+const demoLeadsRouter = (0, express_1.Router)();
+exports.demoLeadsRouter = demoLeadsRouter;
+demoLeadsRouter.post("/", demoLeads_controller_1.handleCreateDemoLead);
+const adminDemoLeadsRouter = (0, express_1.Router)();
+exports.adminDemoLeadsRouter = adminDemoLeadsRouter;
+adminDemoLeadsRouter.use(adminAuth_1.adminAuth);
+adminDemoLeadsRouter.get("/", demoLeads_controller_1.handleListDemoLeads);
+adminDemoLeadsRouter.get("/:id", demoLeads_controller_1.handleGetDemoLead);

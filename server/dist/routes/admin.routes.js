@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const admin_controller_1 = require("../controllers/admin.controller");
+const adminAuth_1 = require("../middleware/adminAuth");
+const router = (0, express_1.Router)();
+router.post("/login", admin_controller_1.adminLogin);
+router.use(adminAuth_1.adminAuth);
+router.get("/automations", admin_controller_1.adminListAutomations);
+router.post("/automations", admin_controller_1.adminCreateAutomation);
+router.put("/automations/:id", admin_controller_1.adminUpdateAutomation);
+router.delete("/automations/:id", admin_controller_1.adminDeleteAutomation);
+router.get("/orders", admin_controller_1.listAdminOrders);
+router.get("/orders/:id", admin_controller_1.getAdminOrder);
+exports.default = router;

@@ -301,7 +301,20 @@ Interactive chat simulations for:
 
 ## Production Deployment
 
-### Backend
+### Deploy to Vercel (Recommended) ⚡
+
+**Quick Deploy**: See [VERCEL-DEPLOYMENT.md](./VERCEL-DEPLOYMENT.md) for complete step-by-step guide.
+
+1. Connect your GitHub repo to Vercel
+2. Configure environment variables
+3. Deploy with one click
+4. Point your domain to Vercel nameservers:
+   - `ns1.vercel-dns.com`
+   - `ns2.vercel-dns.com`
+
+### Manual Deployment (Alternative)
+
+#### Backend
 
 1. Set `NODE_ENV=production`
 2. Use PostgreSQL instead of SQLite
@@ -310,7 +323,7 @@ Interactive chat simulations for:
 5. Set up reverse proxy (nginx)
 6. Configure SSL certificates
 
-### Frontend
+#### Frontend
 
 1. Run `npm run build`
 2. Serve `dist/` folder via static hosting

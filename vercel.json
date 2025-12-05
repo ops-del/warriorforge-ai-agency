@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "buildCommand": "cd client && npm install && npm run build",
+  "outputDirectory": "client/dist",
+  "framework": null,
+  "installCommand": "npm install --prefix server && npm install --prefix client",
+  "devCommand": null,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/serverless"
+    }
+  ],
+  "functions": {
+    "api/serverless.ts": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 10
+    }
+  }
+}

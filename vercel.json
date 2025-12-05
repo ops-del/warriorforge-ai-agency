@@ -12,7 +12,7 @@
     }
   ],
   "functions": {
-    "api/serverless.js": {
+    "api/serverless.ts": {
       "runtime": "nodejs18.x",
       "maxDuration": 10
     }

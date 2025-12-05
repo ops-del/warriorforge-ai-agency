@@ -2,7 +2,7 @@ import type {
   Automation as AutomationDTO,
   DemoLead as DemoLeadDTO,
   Order as OrderDTO,
-} from "@shared/types";
+} from "./shared";
 import type { Automation, DemoLead, Order } from "@prisma/client";
 
 export function toAutomationDTO(record: Automation): AutomationDTO {
